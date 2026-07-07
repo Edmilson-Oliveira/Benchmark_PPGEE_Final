@@ -1,0 +1,3 @@
+solver,status,observacao
+NLopt,LOCALLY_SOLVED,Instalado e testado com sucesso via JuMP usando LD_MMA.
+Optim,LIMITACAO_MOI_NLPBlock,"Instalado, mas não suporta diretamente NLPBlock/@NLobjective via JuMP para NLP geral."

@@ -1,0 +1,46 @@
+julia_depot/
+*.log
+*.tmp
+*.lxi
+.cache/
+.ai-ley/
+__pycache__/
+
+
+# AI-Ley generated files and directories
+# Core AI-Ley
+.ai-ley/
+.cache/
+.project/
+
+# AI Assistant configurations
+.github/copilot-instructions.md
+.github/chatmodes/
+.github/prompts/
+.github/copilot-instructions/
+CLAUDE.md
+.claude/
+GEMINI.md
+.gemini/
+.cursor/
+cursor-config.json
+.windsurf/
+windsurf-config.json
+.clinerules/
+.roorules/
+.codex/
+.opencode/
+.metis/
+AGENT.md
+AGENTS.md
+# Dados grandes do benchmark
+02_ampl/nl/
+02_ampl/nl_47/
+*.nl
+
+# Artefatos locais
+julia_depot/
+.refact/
+*.log
+*.tmp
+.cache/

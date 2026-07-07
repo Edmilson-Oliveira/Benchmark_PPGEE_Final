@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard Benchmark NLP</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 30px; }
+h1 { text-align: center; }
+.card { background: white; padding: 20px; margin: 15px 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.kpi { background: white; padding: 18px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.kpi h2 { margin: 0; font-size: 28px; }
+table { width: 100%; border-collapse: collapse; }
+td, th { border: 1px solid #ccc; padding: 8px; }
+th { background: #e9eef5; }
+</style>
+</head>
+<body>
+
+<h1>Dashboard Final – Benchmark NLP</h1>
+
+<div class="kpis">
+    <div class="kpi"><h2>97</h2><p>Problemas AMPL</p></div>
+    <div class="kpi"><h2>159</h2><p>Modelos COCONUT</p></div>
+    <div class="kpi"><h2>142</h2><p>COCONUT Resolvidos</p></div>
+    <div class="kpi"><h2>89,31%</h2><p>Taxa COCONUT</p></div>
+</div>
+
+<div class="card">
+<h2>Resultados Consolidados</h2>
+<table>
+<tr><th>Conjunto/Solver</th><th>Total</th><th>Resolvidos</th><th>Taxa</th></tr>
+<tr><td>AMPL-NLP / Ipopt</td><td>97</td><td>44</td><td>45.36%</td></tr>
+<tr><td>AMPL-NLP / MadNLP</td><td>22</td><td>21</td><td>95.45%</td></tr>
+<tr><td>COCONUT / GAMS</td><td>159</td><td>142</td><td>89.31%</td></tr>
+<tr><td>COCONUT / Referência .res</td><td>159</td><td>159</td><td>100.00%</td></tr>
+<tr><td>NLopt</td><td>1</td><td>1</td><td>Teste OK</td></tr>
+<tr><td>UnoSolver</td><td>1</td><td>1</td><td>Teste OK</td></tr>
+<tr><td>Optim</td><td>1</td><td>0</td><td>Limitação NLPBlock</td></tr>
+</table>
+
+</div>
+
+<div class="card">
+<h2>Falhas COCONUT/GAMS</h2>
+<table>
+<tr><th>status_execucao</th><th>quantidade</th></tr>
+<tr><td>OK</td><td>142</td></tr>
+<tr><td>ERRO_3</td><td>13</td></tr>
+<tr><td>ERRO_2</td><td>2</td></tr>
+<tr><td>ERRO_7</td><td>2</td></tr>
+</table>
+
+</div>
+
+<div class="card">
+<h2>Status dos Solvers</h2>
+<table>
+<tr><th>solver</th><th>status</th><th>observacao</th></tr>
+<tr><td>Ipopt</td><td>OK</td><td>Executou 97 problemas .nl; 44 OPTIMAL.</td></tr>
+<tr><td>MadNLP</td><td>OK</td><td>22 problemas testados; 21 resolvidos/aceitáveis.</td></tr>
+<tr><td>NLopt</td><td>OK</td><td>Testado com JuMP; status LOCALLY_SOLVED.</td></tr>
+<tr><td>Optim</td><td>LIMITADO</td><td>Não suporta diretamente NLPBlock/@NLobjective via JuMP para NLP geral.</td></tr>
+<tr><td>UnoSolver</td><td>OK</td><td>Testado com JuMP; status LOCALLY_SOLVED.</td></tr>
+</table>
+
+</div>
+
+</body>
+</html>

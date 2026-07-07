@@ -1,0 +1,18 @@
+problema,status_execucao,tempo_s,lst,classificacao
+elec25,ERRO_3,0.136,logs\gams\elec25.lst,Erro de execução/solver
+elec50,ERRO_3,0.176,logs\gams\elec50.lst,Erro de execução/solver
+ex8_3_10,ERRO_3,0.142,logs\gams\ex8_3_10.lst,Erro de execução/solver
+ex8_3_7,ERRO_3,0.18,logs\gams\ex8_3_7.lst,Erro de execução/solver
+ex8_4_6,ERRO_3,0.145,logs\gams\ex8_4_6.lst,Erro de execução/solver
+ex8_4_8,ERRO_3,0.122,logs\gams\ex8_4_8.lst,Erro de execução/solver
+ex8_5_1,ERRO_3,0.113,logs\gams\ex8_5_1.lst,Erro de execução/solver
+ex8_5_3,ERRO_3,0.114,logs\gams\ex8_5_3.lst,Erro de execução/solver
+ex8_5_6,ERRO_3,0.114,logs\gams\ex8_5_6.lst,Erro de execução/solver
+ex8_6_1,ERRO_3,0.131,logs\gams\ex8_6_1.lst,Erro de execução/solver
+linear,ERRO_2,0.131,logs\gams\linear.lst,Função ABS não suave; requer DNLP
+minlphi,ERRO_3,0.18,logs\gams\minlphi.lst,Erro de execução/solver
+pindyck,ERRO_3,0.187,logs\gams\pindyck.lst,Erro de execução/solver
+polygon100,ERRO_7,0.316,logs\gams\polygon100.lst,Limite da licença GAMS Demo
+polygon50,ERRO_7,0.176,logs\gams\polygon50.lst,Limite da licença GAMS Demo
+wall,ERRO_3,0.127,logs\gams\wall.lst,Erro de execução/solver
+water,ERRO_2,0.141,logs\gams\water.lst,Função ABS não suave; requer DNLP

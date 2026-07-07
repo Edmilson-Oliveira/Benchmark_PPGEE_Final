@@ -1,0 +1,10 @@
+const ROOT = normpath(joinpath(@__DIR__, "..", ".."))
+const JULIA_DIR = joinpath(ROOT, "04_julia")
+const NL_DIR = joinpath(ROOT, "02_ampl", "nl_47")
+const RESULTADOS = joinpath(JULIA_DIR, "resultados")
+const LOGS = joinpath(JULIA_DIR, "logs")
+const DASH = joinpath(JULIA_DIR, "dashboards")
+
+mkpath(RESULTADOS)
+mkpath(LOGS)
+mkpath(DASH)

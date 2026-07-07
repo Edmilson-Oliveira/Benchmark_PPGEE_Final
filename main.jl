@@ -1,0 +1,16 @@
+println("==============================================")
+println(" BENCHMARK NLP - PPGEE")
+println("==============================================")
+
+include("config.jl")
+include("04_julia/utils/banner.jl")
+include("04_julia/benchmark/benchmark_ampl.jl")
+include("04_julia/benchmark/benchmark_gams.jl")
+include("04_julia/database/csv_writer.jl")
+include("04_julia/runners/runner_ampl.jl")
+# include("04_julia/runners/runner_ipopt.jl")
+
+println()
+println("==============================================")
+println(" BENCHMARK FINALIZADO")
+println("==============================================")

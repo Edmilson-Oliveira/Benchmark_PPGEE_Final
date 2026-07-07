@@ -1,0 +1,6 @@
+println()
+println("*********************************************")
+println("*      BENCHMARK NLP - PPGEE / UFAM         *")
+println("*      Comparação de Solvers NLP            *")
+println("*********************************************")
+println()

@@ -1,60 +1,85 @@
 using Dates
 
 include(joinpath(ROOT, "04_julia", "solvers", "solver_ipopt.jl"))
+include(joinpath(ROOT, "04_julia", "solvers", "solver_madnlp.jl"))
 
 println()
 println("==============================")
-println("RUNNER AMPL - IPOPT")
+println("RUNNER AMPL - SOLVERS NLP")
 println("==============================")
 
 lista = readlines(joinpath(ROOT, "02_ampl", "lista_47_problemas.txt"))
 
-arquivos = String[]
-
-for nome in lista
-    push!(arquivos, nome * ".nl")
-end
+arquivos = [nome * ".nl" for nome in lista]
 
 println()
-println("Problemas encontrados:")
-println(length(arquivos))
+println("Problemas encontrados: ", length(arquivos))
 
 iniciar_csv(CSV_FINAL)
+
+solvers = ["Ipopt", "MadNLP", "NLopt", "Optim", "Uno"]
 
 open(CSV_FINAL, "a") do f
 
     for arquivo in arquivos
 
-        println()
-        println("===================================")
-        println("Executando: ", arquivo)
-        println("===================================")
-
         caminho = joinpath(AMPL_DIR, arquivo)
         problema = replace(arquivo, ".nl" => "")
 
-        tempo_inicio = time()
+        for solver in solvers
 
-        try
-            resultado = resolver_ipopt(caminho)
+            println()
+            println("===================================")
+            println("Problema: ", arquivo)
+            println("Solver: ", solver)
+            println("===================================")
 
-            tempo_total = time() - tempo_inicio
+            tempo_inicio = time()
 
-            linha = "$problema,Ipopt,$(resultado.objetivo),$tempo_total,$(resultado.status),0.0\n"
-            write(f, linha)
+            try
+                if solver == "Ipopt"
+                    resultado = resolver_ipopt(caminho)
 
-            println("Status: ", resultado.status)
-            println("Objetivo: ", resultado.objetivo)
-            println("Tempo: ", tempo_total)
+                elseif solver == "MadNLP"
+                    resultado = resolver_madnlp(caminho)
 
-        catch e
-            tempo_total = time() - tempo_inicio
+                elseif solver == "NLopt"
+                    resultado = (
+                        status = "LIMITADO_NLPBLOCK",
+                        objetivo = NaN
+                    )
 
-            linha = "$problema,Ipopt,NaN,$tempo_total,ERRO,NaN\n"
-            write(f, linha)
+                elseif solver == "Optim"
+                    resultado = (
+                        status = "LIMITADO_NLPBLOCK",
+                        objetivo = NaN
+                    )
 
-            println("ERRO em ", problema)
-            println(e)
+                elseif solver == "Uno"
+                    resultado = (
+                        status = "TESTE_FUNCIONAL",
+                        objetivo = NaN
+                    )
+                end
+
+                tempo_total = time() - tempo_inicio
+
+                linha = "$problema,$solver,$(resultado.objetivo),$tempo_total,$(resultado.status),NaN\n"
+                write(f, linha)
+
+                println("Status: ", resultado.status)
+                println("Objetivo: ", resultado.objetivo)
+                println("Tempo: ", tempo_total)
+
+            catch e
+                tempo_total = time() - tempo_inicio
+
+                linha = "$problema,$solver,NaN,$tempo_total,ERRO,NaN\n"
+                write(f, linha)
+
+                println("ERRO em ", problema, " com ", solver)
+                println(e)
+            end
         end
     end
 end
